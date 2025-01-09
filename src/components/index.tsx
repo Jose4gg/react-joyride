@@ -295,12 +295,14 @@ class Joyride extends React.Component<Props, State> {
       const tooltipPopper = this.store.getPopper('tooltip');
 
       if (lifecycle === LIFECYCLE.BEACON && beaconPopper) {
+        // @ts-ignore
         const { offsets, placement } = beaconPopper;
 
         if (!['bottom'].includes(placement) && !hasCustomScroll) {
           scrollY = Math.floor(offsets.popper.top - scrollOffset);
         }
       } else if (lifecycle === LIFECYCLE.TOOLTIP && tooltipPopper) {
+        // @ts-ignore
         const { flipped, offsets, placement } = tooltipPopper;
 
         if (['top', 'right', 'left'].includes(placement) && !flipped && !hasCustomScroll) {
@@ -316,6 +318,7 @@ class Joyride extends React.Component<Props, State> {
         scrollTo(scrollY, { element: scrollParent as Element, duration: scrollDuration }).then(
           () => {
             setTimeout(() => {
+              // @ts-ignore
               this.store.getPopper('tooltip')?.instance.update();
             }, 10);
           },

@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { cloneElement, FC, isValidElement, ReactElement, ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import innerText from 'react-innertext';
